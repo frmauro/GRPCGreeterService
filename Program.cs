@@ -25,9 +25,20 @@ namespace GrpcProduct
             Host.CreateDefaultBuilder(args)
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
-                    webBuilder
-                    .UseStartup<Startup>()
-                    .UseKestrel(options => options.ConfigureEndpoints());
+                    webBuilder.UseStartup<Startup>();
+                    // .UseKestrel(options => 
+                    //     {
+                    //          // Configure the Url and ports to bind to
+                    //          // This overrides calls to UseUrls and the ASPNETCORE_URLS environment variable, but will be 
+                    //          // overridden if you call UseIisIntegration() and host behind IIS/IIS Express
+                    //           options.Listen(System.Net.IPAddress.Any, 5001);
+                    //           options.Listen(System.Net.IPAddress.Any, 5002, listenOptions =>
+                    //           {
+                    //               listenOptions.UseHttps("localhost.pfx", "123");
+                    //           });
+
+                    //          //options.ConfigureEndpoints()
+                    //     });
                 });
 
 
