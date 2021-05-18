@@ -6,9 +6,9 @@ services:
         - "8000:80"
         - "8001:443"
         environment: 
-            ASPNETCORE_URLS: "https://+;http://+"
-            ASPNETCORE_HTTPS_PORT: "8001"
-            ASPNETCORE_ENVIROMENT: Development
-        volumes: 
-           - ${APPDATA}\microsoft\UserSecrets\:/root/.microsoft/usersecrets
-           - ${USERPROFILE}\.aspnet\https:/root/.aspnet/https/ 
+            - ASPNETCORE_URLS=https://0.0.0.0:5000
+            - ASPNETCORE_HTTPS_PORT=5000
+            - ASPNETCORE_Kestrel__Certificates__Default__Path=/https/servercert.pfx
+        # volumes: 
+        #    - ${APPDATA}\microsoft\UserSecrets\:/root/.microsoft/usersecrets
+        #    - ${USERPROFILE}\.aspnet\https:/root/.aspnet/https/ 

@@ -26,6 +26,8 @@ namespace GrpcProduct
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>();
+                     //.UseKestrel(options => options.ListenLocalhost(5000, o => o.Protocols = Microsoft.AspNetCore.Server.Kestrel.Core.HttpProtocols.Http2)); 
+                    //.UseKestrel(options => options.ConfigureEndpoints());
                     // .UseKestrel(options => 
                     //     {
                     //          // Configure the Url and ports to bind to
