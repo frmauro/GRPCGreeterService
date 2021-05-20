@@ -8,6 +8,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.AspNetCore.Hosting;
 using System.Security.Cryptography.X509Certificates;
 using Microsoft.Extensions.Hosting;
+using Microsoft.AspNetCore.Server.Kestrel.Https;
 
 
 namespace GrpcProduct
@@ -26,6 +27,13 @@ namespace GrpcProduct
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>();
+
+                    webBuilder.ConfigureKestrel(o =>
+                    {
+                        o.ConfigureHttpsDefaults(o =>
+                            o.ClientCertificateMode = ClientCertificateMode.RequireCertificate);
+                    });
+
                      //.UseKestrel(options => options.ListenLocalhost(5000, o => o.Protocols = Microsoft.AspNetCore.Server.Kestrel.Core.HttpProtocols.Http2)); 
                     //.UseKestrel(options => options.ConfigureEndpoints());
                     // .UseKestrel(options => 

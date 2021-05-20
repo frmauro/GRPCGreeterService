@@ -42,3 +42,7 @@ openssl x509 -noout -text -in $PARENT.crt
 # COMMAND TO CREATE CONTAINER WITH CERTIFICATE SELF SICN
 docker run --rm -it -p 8000:80 -p 8001:443 -e ASPNETCORE_URLS="https://+;http://+" -e ASPNETCORE_HTTPS_PORT=8001 -e ASPNETCORE_ENVIRONMENT=Development -e ASPNETCORE_Kestrel__Certificates__Default__Path=/https/localhost.crt -e ASPNETCORE_Kestrel__Certificates__Default__KeyPath=/https/localhost.key -v /mnt/c/Users/frmau/estudo/certificados:/https/ grpcproductsservice
 
+docker run --rm -d -p 8000:80 -p 8001:443 -e ASPNETCORE_URLS="https://+;http://+" -e ASPNETCORE_HTTPS_PORT=8001 -e ASPNETCORE_ENVIRONMENT=Development -e ASPNETCORE_Kestrel__Certificates__Default__Path=/https/localhost.crt -e ASPNETCORE_Kestrel__Certificates__Default__KeyPath=/https/localhost.key -v /mnt/c/Users/frmau/estudo/certificados:/https/ grpcproductsservice
+
+
+
