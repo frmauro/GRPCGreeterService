@@ -45,4 +45,9 @@ docker run --rm -it -p 8000:80 -p 8001:443 -e ASPNETCORE_URLS="https://+;http://
 docker run --rm -d -p 8000:80 -p 8001:443 -e ASPNETCORE_URLS="https://+;http://+" -e ASPNETCORE_HTTPS_PORT=8001 -e ASPNETCORE_ENVIRONMENT=Development -e ASPNETCORE_Kestrel__Certificates__Default__Path=/https/localhost.crt -e ASPNETCORE_Kestrel__Certificates__Default__KeyPath=/https/localhost.key -v /mnt/c/Users/frmau/estudo/certificados:/https/ grpcproductsservice
 
 
+# COMMAND MORE EFICIENTILY TO CREATE CONTAINER GRPC SERVER WITH INSECURITY CERTIFICATE 
+docker run -p 127.0.0.1:8080:80 -p 127.0.0.1:8081:8080 --env ASPNETCORE_ENVIRONMENT=Development -d grpcproductsservice -e ASPNETCORE_ENVIRONMENT=Development -e ASPNETCORE_URLS=http://+
+
+
+
 

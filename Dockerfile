@@ -24,6 +24,6 @@ COPY --from=build /src/out .
 
 #COPY ["servercert.pfx", "/https/servercert.pfx"]
 #COPY ["cacert.crt", "/usr/local/share/ca-certificates/cacert.crt"]
-RUN update-ca-certificates
-
+#RUN update-ca-certificates
+EXPOSE 80
 ENTRYPOINT ["dotnet", "GrpcGreeter.dll"]

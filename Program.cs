@@ -28,11 +28,11 @@ namespace GrpcProduct
                 {
                     webBuilder.UseStartup<Startup>();
 
-                    webBuilder.ConfigureKestrel(o =>
-                    {
-                        o.ConfigureHttpsDefaults(o =>
-                            o.ClientCertificateMode = ClientCertificateMode.RequireCertificate);
-                    });
+                    // webBuilder.ConfigureKestrel(o =>
+                    // {
+                    //     o.ConfigureHttpsDefaults(o =>
+                    //         o.ClientCertificateMode = ClientCertificateMode.RequireCertificate);
+                    // });
 
                      //.UseKestrel(options => options.ListenLocalhost(5000, o => o.Protocols = Microsoft.AspNetCore.Server.Kestrel.Core.HttpProtocols.Http2)); 
                     //.UseKestrel(options => options.ConfigureEndpoints());
